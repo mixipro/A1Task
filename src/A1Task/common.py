@@ -1,4 +1,3 @@
-
 from pydantic import BaseSettings
 
 from sqlmodel import create_engine, SQLModel, Session, select
@@ -8,6 +7,7 @@ from A1Task import PACKAGE_ROOT
 
 # from A1Task.api.models import Users, TokenPurpose, User
 
+
 class Settings(BaseSettings):
     postgres_user: str
     postgres_password: str
@@ -16,8 +16,8 @@ class Settings(BaseSettings):
     db_port: int
 
     class Config:
-        env_file = '../../.env'
-        env_file_encoding = 'utf-8'
+        env_file = "../../.env"
+        env_file_encoding = "utf-8"
 
 
 def main():
@@ -28,7 +28,7 @@ def main():
 def get_settings(env_path=None):
     if env_path is None:
         env_path = PACKAGE_ROOT / ".env"
-    settings = Settings(_env_file=env_path, _env_file_encoding='utf-8')
+    settings = Settings(_env_file=env_path, _env_file_encoding="utf-8")
     return settings
 
 
@@ -36,8 +36,8 @@ def get_database_url(env_path=None) -> str:
     if env_path is None:
         env_path = PACKAGE_ROOT / ".env"
     print(env_path)
-    settings = Settings(_env_file=env_path, _env_file_encoding='utf-8')
-    url = f'postgresql://{settings.postgres_user}:{settings.postgres_password}@{settings.db_host}:{settings.db_port}/{settings.postgres_db}'
+    settings = Settings(_env_file=env_path, _env_file_encoding="utf-8")
+    url = f"postgresql://{settings.postgres_user}:{settings.postgres_password}@{settings.db_host}:{settings.db_port}/{settings.postgres_db}"
     return url
 
 
@@ -53,6 +53,7 @@ def get_session(env_path=None) -> Session:
     # SQLModel.metadata.create_all(engine)
     with Session(engine) as session:
         yield session
+
 
 if __name__ == "__main__":
     main()

@@ -33,9 +33,9 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return RedirectResponse(url='/docs')
+    return RedirectResponse(url="/docs")
 
-#videti sto je ovako
+
 @app.get("/docs", include_in_schema=False)
 async def custom_swagger_ui_html():
     return get_swagger_ui_html(
@@ -45,8 +45,4 @@ async def custom_swagger_ui_html():
 
 
 if __name__ == "__main__":
-    uvicorn.run(
-        "A1Task.api.main:app",
-        host="127.0.0.1",
-        port=8001,
-        log_level="debug")
+    uvicorn.run("A1Task.api.main:app", host="127.0.0.1", port=8001, log_level="debug")
