@@ -1,11 +1,8 @@
-from datetime import datetime, timedelta
-from fastapi import Depends, HTTPException
-from fastapi.security import OAuth2PasswordBearer
+
 from pydantic import BaseSettings
 
 from sqlmodel import create_engine, SQLModel, Session, select
-from starlette import status
-import A1Task
+
 from A1Task import PACKAGE_ROOT
 
 
@@ -56,3 +53,6 @@ def get_session(env_path=None) -> Session:
     # SQLModel.metadata.create_all(engine)
     with Session(engine) as session:
         yield session
+
+if __name__ == "__main__":
+    main()

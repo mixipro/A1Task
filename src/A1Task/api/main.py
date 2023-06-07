@@ -15,8 +15,8 @@ def get_project_version() -> str:
 
 
 app = FastAPI(
-    title="Startizer",
-    version=get_project_version(),  # type: ignore  # noqa
+    title="A1Task",
+    version=get_project_version(),
 )
 
 app.include_router(user.app)
