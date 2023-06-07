@@ -1,4 +1,5 @@
+.idea
+tests
 .env
 .env_docker
-tests
-.idea
+.env_test
