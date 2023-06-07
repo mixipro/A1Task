@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "a1task"
+version = "0.1.0"
+description = ""
+authors = ["mixipro <mixipro@yahoo.com>"]
+readme = "README.md"
+packages = [{include = "A1Task", from = "src"},]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.96.0"
+uvicorn = "^0.22.0"
+alembic = "^1.11.1"
+sqlmodel = "^0.0.8"
+toml = "^0.10.2"
+requests = "^2.31.0"
+python-dotenv = "^1.0.0"
+psycopg2-binary = "^2.9.6"
+pycountry = "^22.3.5"
+pydantic = {extras = ["email"], version = "^1.10.8"}
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
